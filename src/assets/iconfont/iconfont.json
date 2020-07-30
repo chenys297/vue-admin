@@ -1,0 +1,121 @@
+{
+  "id": "1118285",
+  "name": "vue-admin-template",
+  "font_family": "vue-admin-icon",
+  "css_prefix_text": "vue-admin-",
+  "description": "个人vue后台管理系统",
+  "glyphs": [
+    {
+      "icon_id": "10387811",
+      "name": "globalization",
+      "font_class": "globalization",
+      "unicode": "e65b",
+      "unicode_decimal": 58971
+    },
+    {
+      "icon_id": "10387524",
+      "name": "language-zhTW",
+      "font_class": "language-zhTW",
+      "unicode": "e65a",
+      "unicode_decimal": 58970
+    },
+    {
+      "icon_id": "10385081",
+      "name": "language-en",
+      "font_class": "language-en",
+      "unicode": "e658",
+      "unicode_decimal": 58968
+    },
+    {
+      "icon_id": "10385082",
+      "name": "language",
+      "font_class": "language",
+      "unicode": "e659",
+      "unicode_decimal": 58969
+    },
+    {
+      "icon_id": "10385077",
+      "name": "language-zh",
+      "font_class": "language-zh",
+      "unicode": "e657",
+      "unicode_decimal": 58967
+    },
+    {
+      "icon_id": "9791705",
+      "name": "customer-service",
+      "font_class": "customer-service",
+      "unicode": "e656",
+      "unicode_decimal": 58966
+    },
+    {
+      "icon_id": "9042242",
+      "name": "chart",
+      "font_class": "chart",
+      "unicode": "e651",
+      "unicode_decimal": 58961
+    },
+    {
+      "icon_id": "9042182",
+      "name": "pie",
+      "font_class": "pie",
+      "unicode": "e652",
+      "unicode_decimal": 58962
+    },
+    {
+      "icon_id": "9042183",
+      "name": "table",
+      "font_class": "table",
+      "unicode": "e653",
+      "unicode_decimal": 58963
+    },
+    {
+      "icon_id": "9042184",
+      "name": "setting",
+      "font_class": "setting",
+      "unicode": "e654",
+      "unicode_decimal": 58964
+    },
+    {
+      "icon_id": "9042185",
+      "name": "cpts",
+      "font_class": "cpts",
+      "unicode": "e655",
+      "unicode_decimal": 58965
+    },
+    {
+      "icon_id": "9006732",
+      "name": "eye",
+      "font_class": "eye",
+      "unicode": "e649",
+      "unicode_decimal": 58953
+    },
+    {
+      "icon_id": "9006733",
+      "name": "eye-close",
+      "font_class": "eye-close",
+      "unicode": "e64a",
+      "unicode_decimal": 58954
+    },
+    {
+      "icon_id": "9006738",
+      "name": "list-close",
+      "font_class": "list-close",
+      "unicode": "e64e",
+      "unicode_decimal": 58958
+    },
+    {
+      "icon_id": "9006739",
+      "name": "user",
+      "font_class": "user",
+      "unicode": "e64f",
+      "unicode_decimal": 58959
+    },
+    {
+      "icon_id": "9006740",
+      "name": "password",
+      "font_class": "password",
+      "unicode": "e650",
+      "unicode_decimal": 58960
+    }
+  ]
+}
