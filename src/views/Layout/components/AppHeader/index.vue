@@ -1,17 +1,17 @@
 <template>
-  <div>AppHeader</div>
+  <div class="cpt-app-header">AppHeader</div>
 </template>
 
 <script>
 export default {
   name: 'AppHeader',
   data () {
-    return {
-    }
+    return {}
   }
 }
 </script>
 
 <style lang='scss' scoped>
-
+.cpt-app-header {
+}
 </style>

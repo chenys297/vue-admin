@@ -1,14 +1,14 @@
 <template>
-  <el-container>
-    <el-aside width="auto">
+  <el-container class="layout">
+    <el-aside width="auto" class="app-aside">
       <Sidebar />
     </el-aside>
     <el-container>
-      <el-header>
+      <el-header class="app-header">
         <AppHeader />
         <Navbar />
       </el-header>
-      <el-main>
+      <el-main class="app-main">
         <AppMain />
       </el-main>
     </el-container>
@@ -27,4 +27,18 @@ export default {
 </script>
 
 <style lang='scss' scoped>
+.layout {
+  height: 100%;
+  width: 100%;
+}
+.app-main {
+  padding: 20px;
+  background-color: cornflowerblue;
+}
+.app-aside {
+  background-color: aquamarine;
+}
+.app-header {
+  background-color: yellowgreen;
+}
 </style>
