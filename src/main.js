@@ -10,6 +10,12 @@ import 'element-ui/lib/theme-chalk/index.css'
 // style
 import './styles/index.scss'
 
+// filters
+import * as filters from './filter'
+Object.keys(filters).forEach(key => {
+  Vue.filter(key, filters[key])
+})
+
 Vue.use(ElementUI)
 
 Vue.config.productionTip = false
