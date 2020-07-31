@@ -40,6 +40,28 @@ const constRoutes = [
       title: 'login',
       icon: ''
     }
+  },
+  {
+    path: '/forbidden',
+    name: 'forbidden',
+    component: () => import('@/views/Results/403.vue'),
+    hidden: false,
+    meta: {
+      requireAuth: false,
+      title: 'forbidden',
+      icon: ''
+    }
+  },
+  {
+    path: '*',
+    name: 'notFund',
+    component: () => import('@/views/Results/404.vue'),
+    hidden: false,
+    meta: {
+      requireAuth: false,
+      title: 'notFund',
+      icon: ''
+    }
   }
 ]
 
