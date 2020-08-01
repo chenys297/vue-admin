@@ -6,6 +6,7 @@
     :text-color="sidebarTextColor"
     :active-text-color="sidebarActiveTextColor"
     class="sidebar sidebar-container"
+    style="border: none;"
   >
     <SidebarItem v-for="menu of menuList" :key="menu.name" :route="menu" :index="menu.name" />
   </el-menu>
@@ -48,7 +49,7 @@ export default {
 </style>
 <style>
 .sidebar.sidebar-container:not(.el-menu--collapse) {
-  width: 200px;
+  width: 230px;
   min-height: 100%;
 }
 </style>
