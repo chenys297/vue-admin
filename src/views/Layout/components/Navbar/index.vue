@@ -53,7 +53,10 @@ export default {
   width: 100%;
   overflow-x: scroll;
   overflow-y: hidden;
-  background-color: #fafafa;
+  background-color: #fff;
+  border-width: 1px 0;
+  border-style: solid;
+  border-color: #f2f2f2;
   ::-webkit-scrollbar {
     width: 0;
     height: 0;
