@@ -1,6 +1,6 @@
 <template>
   <i v-if="myIconfont" :class="['vue-admin-icon' , 'vue-admin-' + iconName]" :style="styles" />
-  <i v-else :class="iconName" :style="styles" />
+  <i v-else :class="'el-icon-' + iconName" :style="styles" />
 </template>
 
 <script>

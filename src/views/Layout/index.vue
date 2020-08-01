@@ -36,7 +36,13 @@ export default {
   background-color: cornflowerblue;
 }
 .app-aside {
-  background-color: aquamarine;
+  * {
+    box-sizing: border-box;
+  }
+  border: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 .app-header {
   background-color: yellowgreen;

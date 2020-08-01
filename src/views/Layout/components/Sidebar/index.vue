@@ -1,17 +1,54 @@
 <template>
-  <div>Sidebar</div>
+  <el-menu
+    :default-active="$route.path"
+    :collapse="isCollapse"
+    :background-color="sidebarBackgroundColor"
+    :text-color="sidebarTextColor"
+    :active-text-color="sidebarActiveTextColor"
+    class="sidebar sidebar-container"
+  >
+    <SidebarItem v-for="menu of menuList" :key="menu.name" :route="menu" :index="menu.name" />
+  </el-menu>
+  <!-- <div class="siderbar">Sidebar</div> -->
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+import SidebarItem from './SidebarItem'
 export default {
   name: 'Sidebar',
+  components: { SidebarItem },
   data () {
-    return {
-    }
+    return {}
+  },
+
+  computed: {
+    ...mapGetters({
+      menuList: 'asyncRoutes',
+      sidebarBackgroundColor: 'sidebarBackgroundColor',
+      sidebarTextColor: 'sidebarTextColor',
+      sidebarActiveTextColor: 'sidebarActiveTextColor',
+      isCollapse: 'isCollapse'
+    })
   }
 }
 </script>
 
 <style lang='scss' scoped>
-
+.sidebar {
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+   &::-webkit-scrollbar {
+    width: 0;
+  }
+  height: 100%;
+}
+</style>
+<style>
+.sidebar.sidebar-container:not(.el-menu--collapse) {
+  width: 200px;
+  min-height: 100%;
+}
 </style>
