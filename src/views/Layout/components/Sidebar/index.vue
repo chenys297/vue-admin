@@ -1,6 +1,6 @@
 <template>
   <el-menu
-    :default-active="$route.path"
+    :default-active="$route.name"
     :collapse="isCollapse"
     :background-color="sidebarBackgroundColor"
     :text-color="sidebarTextColor"
@@ -10,7 +10,6 @@
   >
     <SidebarItem v-for="menu of menuList" :key="menu.name" :route="menu" :index="menu.name" />
   </el-menu>
-  <!-- <div class="siderbar">Sidebar</div> -->
 </template>
 
 <script>
