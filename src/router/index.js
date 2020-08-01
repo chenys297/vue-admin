@@ -20,7 +20,8 @@ export const constRoutes = [
       {
         path: '/dashoboard',
         name: 'dashoboard',
-        component: () => import(/* webpackChunkName: "Dashboard" */ '@/views/Dashboard'),
+        component: () =>
+          import(/* webpackChunkName: "Dashboard" */ '@/views/Dashboard'),
         hidden: false,
         meta: {
           requireAuth: false,
@@ -73,5 +74,11 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes: constRoutes.concat(resultRoutes)
 })
+
+// TODO: fix Uncaught (in promise) Error: Avoided redundant navigation to current locatio
+const originalPush = VueRouter.prototype.push
+VueRouter.prototype.push = function push (location) {
+  return originalPush.call(this, location).catch(err => err)
+}
 
 export default router
