@@ -4,7 +4,7 @@ import Layout from '@/views/Layout/index.vue'
 
 Vue.use(VueRouter)
 
-const constRoutes = [
+export const constRoutes = [
   {
     path: '/',
     name: 'layout',
@@ -40,7 +40,10 @@ const constRoutes = [
       title: 'login',
       icon: ''
     }
-  },
+  }
+]
+
+export const resultRoutes = [
   {
     path: '/forbidden',
     name: 'forbidden',
@@ -68,7 +71,7 @@ const constRoutes = [
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes: constRoutes
+  routes: constRoutes.concat(resultRoutes)
 })
 
 export default router
