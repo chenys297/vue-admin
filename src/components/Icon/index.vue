@@ -1,6 +1,6 @@
 <template>
-  <i v-if="myIconfont" :class="['vue-admin-icon' , 'vue-admin-' + iconName]" :style="styles" />
-  <i v-else :class="'el-icon-' + iconName" :style="styles" />
+  <i v-if="myIconfont" :class="['vue-admin-icon' , 'vue-admin-' + name]" :style="styles" />
+  <i v-else :class="'el-icon-' + name" :style="styles" />
 </template>
 
 <script>
@@ -11,9 +11,9 @@ export default {
       type: Boolean,
       default: true
     },
-    iconName: {
+    name: {
       type: String,
-      required: true
+      required: 'true'
     },
     fontSize: {
       type: [String, Number],
