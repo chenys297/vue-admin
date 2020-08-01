@@ -4,7 +4,7 @@ const menus = [
     path: '/dashboard',
     name: 'dashboard',
     isMenu: 1,
-    titleText: 'dashboard',
+    titleText: 'Dashboard',
     remark: '',
     children: []
   },

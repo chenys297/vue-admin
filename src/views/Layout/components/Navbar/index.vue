@@ -19,7 +19,7 @@ export default {
   name: 'Navbar',
   data () {
     return {
-      disableCloseNames: ['dashoboard', 'home']
+      disableCloseNames: ['dashboard', 'home']
     }
   },
   computed: {

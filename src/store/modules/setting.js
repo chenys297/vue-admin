@@ -4,7 +4,6 @@ const state = {
   sidebarActiveTextColor: '#ffd04b',
   isCollapse: false
 }
-const actions = {}
 
 const mutations = {
   SET_SIDEBAR_BACKROUND_COLOR: (state, color) => {
@@ -15,6 +14,15 @@ const mutations = {
   },
   SET_SIDEBAR_ACTIVE_TEXT_COLOR: (state, color) => {
     state.sidebarActiveTextColor = color
+  },
+  SET_COLLAPSE: (state, isCollapse) => {
+    state.isCollapse = isCollapse
+  }
+}
+
+const actions = {
+  toggleCollapse: ({ state, commit }) => {
+    commit('SET_COLLAPSE', !state.isCollapse)
   }
 }
 

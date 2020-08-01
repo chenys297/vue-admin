@@ -4,7 +4,7 @@
       <Sidebar />
     </el-aside>
     <el-container>
-      <el-header class="df fdc app-header">
+      <el-header class="df fdc app-header" style="height: auto;">
         <AppHeader />
         <Navbar />
       </el-header>

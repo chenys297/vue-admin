@@ -4,6 +4,7 @@
 </template>
 
 <script>
+import { isNumber } from '@/utils'
 export default {
   name: 'SvgIcon',
   props: {
@@ -15,7 +16,7 @@ export default {
       type: String,
       required: 'true'
     },
-    fontSize: {
+    size: {
       type: [String, Number],
       default: 'inherit'
     },
@@ -31,14 +32,18 @@ export default {
   },
 
   watch: {
-    fontSize: {
-      handler: function (fontSize) {
-        if (fontSize) {
-          this.styles.fontSize = fontSize
+    size: {
+      handler: function (size) {
+        if (isNumber(size)) {
+          size += 'px'
+        }
+        if (size) {
+          this.styles.fontSize = size
         } else {
           this.styles.fontSize = 'inherit'
         }
-      }
+      },
+      immediate: true
     },
 
     color: {

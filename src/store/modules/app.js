@@ -1,11 +1,11 @@
 const state = {
   openedRoutes: [
     {
-      path: '/dashoboard',
-      name: 'dashoboard',
+      path: '/dashboard',
+      name: 'dashboard',
       meta: {
         requireAuth: false,
-        title: 'dashboard',
+        title: 'Dashboard',
         icon: 'dashboard'
       }
     }

@@ -7,25 +7,25 @@ Vue.use(VueRouter)
 export const constRoutes = [
   {
     path: '/',
-    name: 'layout',
+    name: 'home',
     component: Layout,
-    redirect: '/dashoboard',
+    redirect: '/dashboard',
     hidden: true,
     meta: {
       requireAuth: false,
-      title: 'layout',
+      title: 'home',
       icon: ''
     },
     children: [
       {
-        path: '/dashoboard',
-        name: 'dashoboard',
+        path: '/dashboard',
+        name: 'dashboard',
         component: () =>
           import(/* webpackChunkName: "Dashboard" */ '@/views/Dashboard'),
         hidden: false,
         meta: {
           requireAuth: false,
-          title: 'dashboard',
+          title: 'Dashboard',
           icon: 'dashboard'
         }
       }
