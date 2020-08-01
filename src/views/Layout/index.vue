@@ -4,7 +4,7 @@
       <Sidebar />
     </el-aside>
     <el-container>
-      <el-header class="app-header">
+      <el-header class="df fdc app-header">
         <AppHeader />
         <Navbar />
       </el-header>
@@ -45,6 +45,6 @@ export default {
   overflow: hidden;
 }
 .app-header {
-  background-color: yellowgreen;
+  padding: 0;
 }
 </style>

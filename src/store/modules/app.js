@@ -18,13 +18,22 @@ const actions = {
   },
 
   removeOpenedRoutes: ({ state }, route) => {
-    state.openedRoutes.find((openedRoute, index) => {
-      if (openedRoute.path === route.path) {
-        state.openedRoute.splice(index, 1)
-        return true
-      } else {
-        return false
-      }
+    return new Promise(resolve => {
+      let lastIdx = -1
+      state.openedRoutes.find((openedRoute, index) => {
+        if (openedRoute.path === route.path) {
+          state.openedRoutes.splice(index, 1)
+          if (index === 0) {
+            lastIdx = index + 1
+          } else {
+            lastIdx = index - 1
+          }
+          return true
+        } else {
+          return false
+        }
+      })
+      resolve(state.openedRoutes[lastIdx])
     })
   }
 }

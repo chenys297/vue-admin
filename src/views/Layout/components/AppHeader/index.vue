@@ -13,5 +13,6 @@ export default {
 
 <style lang='scss' scoped>
 .cpt-app-header {
+  flex-grow: 1;
 }
 </style>
