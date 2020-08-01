@@ -5,7 +5,7 @@
       :key="route.path"
       :id="route.path"
       :effect="route.path === $route.path ? 'dark' : 'light'"
-      closable
+      :closable="!disableCloseNames.includes(route.name)"
       size="mini"
       class="nav-item"
       @click="handleClickTag(route)"
@@ -18,7 +18,9 @@
 export default {
   name: 'Navbar',
   data () {
-    return {}
+    return {
+      disableCloseNames: ['dashoboard', 'home']
+    }
   },
   computed: {
     openedRoutes () {
@@ -31,7 +33,10 @@ export default {
     },
 
     async handleClose (route) {
-      const lastRoute = await this.$store.dispatch('app/removeOpenedRoutes', route)
+      const lastRoute = await this.$store.dispatch(
+        'app/removeOpenedRoutes',
+        route
+      )
       this.$router.push(lastRoute)
     }
   }
@@ -60,6 +65,7 @@ export default {
   .nav-item {
     margin: 3px 0;
     cursor: pointer;
+    user-select: none;
 
     &:hover {
       border-color: $--color-primary;

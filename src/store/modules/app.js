@@ -1,5 +1,15 @@
 const state = {
-  openedRoutes: []
+  openedRoutes: [
+    {
+      path: '/dashoboard',
+      name: 'dashoboard',
+      meta: {
+        requireAuth: false,
+        title: 'dashboard',
+        icon: 'dashboard'
+      }
+    }
+  ]
 }
 const mutations = {
   SET_OPENED_ROUTES: (state, openedRoutes) => {
@@ -13,7 +23,9 @@ const actions = {
       return openedRoute.path === route.path
     })
     if (!tmp) {
-      state.openedRoutes.unshift(route)
+      // state.openedRoutes.unshift(route)
+      // 第一个永远是dashboard或者home
+      state.openedRoutes.splice(1, 0, route)
     }
   },
 
