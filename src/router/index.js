@@ -10,7 +10,7 @@ export const constRoutes = [
     name: 'layout',
     component: Layout,
     redirect: '/dashoboard',
-    hide: true,
+    hidden: true,
     meta: {
       requireAuth: false,
       title: 'layout',
@@ -21,7 +21,7 @@ export const constRoutes = [
         path: '/dashoboard',
         name: 'dashoboard',
         component: () => import(/* webpackChunkName: "Dashboard" */ '@/views/Dashboard'),
-        hide: false,
+        hidden: false,
         meta: {
           requireAuth: false,
           title: 'dashboard',
@@ -48,7 +48,7 @@ export const resultRoutes = [
     path: '/forbidden',
     name: 'forbidden',
     component: () => import('@/views/Results/403.vue'),
-    hidden: false,
+    hidden: true,
     meta: {
       requireAuth: false,
       title: 'forbidden',
@@ -59,7 +59,7 @@ export const resultRoutes = [
     path: '*',
     name: 'notFund',
     component: () => import('@/views/Results/404.vue'),
-    hidden: false,
+    hidden: true,
     meta: {
       requireAuth: false,
       title: 'notFund',

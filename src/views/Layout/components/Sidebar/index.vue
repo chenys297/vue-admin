@@ -40,7 +40,7 @@ export default {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-   &::-webkit-scrollbar {
+  &::-webkit-scrollbar {
     width: 0;
   }
   height: 100%;
