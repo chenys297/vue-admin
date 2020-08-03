@@ -1,15 +1,17 @@
 <template>
-  <router-view />
+  <div>User Management</div>
 </template>
 
 <script>
 export default {
-  name: 'AppMain',
+  name: 'UserMgmt',
   data () {
-    return {}
+    return {
+    }
   }
 }
 </script>
 
 <style lang='scss' scoped>
+
 </style>

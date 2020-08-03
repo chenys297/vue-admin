@@ -1,15 +1,17 @@
 <template>
-  <router-view />
+  <div>Permission Management</div>
 </template>
 
 <script>
 export default {
-  name: 'AppMain',
+  name: 'PermissionMgmt',
   data () {
-    return {}
+    return {
+    }
   }
 }
 </script>
 
 <style lang='scss' scoped>
+
 </style>

@@ -32,7 +32,7 @@ export default {
   width: 100%;
 }
 .app-main {
-  padding: 20px;
+  padding: 10px;
   background-color: cornflowerblue;
 }
 .app-aside {

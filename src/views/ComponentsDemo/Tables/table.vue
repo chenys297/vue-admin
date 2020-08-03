@@ -1,15 +1,17 @@
 <template>
-  <router-view />
+  <div>Component Demo Table</div>
 </template>
 
 <script>
 export default {
-  name: 'AppMain',
+  name: 'TableDemo',
   data () {
-    return {}
+    return {
+    }
   }
 }
 </script>
 
 <style lang='scss' scoped>
+
 </style>

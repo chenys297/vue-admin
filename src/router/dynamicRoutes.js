@@ -3,6 +3,32 @@ import Layout from '@/views/Layout'
 
 const dynamicRoutes = [
   {
+    path: '/home',
+    name: 'home',
+    component: Layout,
+    redirect: '/dashboard',
+    hidden: false,
+    meta: {
+      requireAuth: true,
+      title: '首页',
+      icon: 'cpts'
+    },
+    children: [
+      {
+        path: '/dashboard',
+        name: 'dashboard',
+        component: () =>
+          import(/* webpackChunkName: "Dashboard" */ '@/views/Dashboard'),
+        hidden: false,
+        meta: {
+          requireAuth: false,
+          title: 'Dashboard',
+          icon: 'dashboard'
+        }
+      }
+    ]
+  },
+  {
     path: '/sysMgmt',
     name: 'sysMgmt',
     component: Layout,
@@ -18,7 +44,7 @@ const dynamicRoutes = [
         path: '/sysUserMgmt',
         name: 'sysUserMgmt',
         component: () =>
-          import(/* webpackChunkName: "Dashboard" */ '@/views/Dashboard'),
+          import(/* webpackChunkName: "sysUserMgmt" */ '@/views/SystemMgmt/UserMgmt'),
         hidden: false,
         meta: {
           requireAuth: true,
@@ -31,7 +57,7 @@ const dynamicRoutes = [
         path: '/sysRoleMgmt',
         name: 'sysRoleMgmt',
         component: () =>
-          import(/* webpackChunkName: "Dashboard" */ '@/views/Dashboard'),
+          import(/* webpackChunkName: "sysRoleMgmt" */ '@/views/SystemMgmt/RoleMgmt'),
         hidden: false,
         meta: {
           requireAuth: true,
@@ -44,7 +70,7 @@ const dynamicRoutes = [
         path: '/sysPermisssionMgmt',
         name: 'sysPermisssionMgmt',
         component: () =>
-          import(/* webpackChunkName: "Dashboard" */ '@/views/Dashboard'),
+          import(/* webpackChunkName: "sysPermisssionMgmt" */ '@/views/SystemMgmt/PermissionMgmt'),
         hidden: false,
         meta: {
           requireAuth: true,
@@ -71,7 +97,7 @@ const dynamicRoutes = [
         path: '/table',
         name: 'table',
         component: () =>
-          import(/* webpackChunkName: "Dashboard" */ '@/views/Dashboard'),
+          import(/* webpackChunkName: "tableDemo" */ '@/views/ComponentsDemo/Tables/table.vue'),
         hidden: false,
         meta: {
           requireAuth: true,

@@ -1,15 +1,17 @@
 <template>
-  <router-view />
+  <div>Role Management</div>
 </template>
 
 <script>
 export default {
-  name: 'AppMain',
+  name: 'RoleMgmt',
   data () {
-    return {}
+    return {
+    }
   }
 }
 </script>
 
 <style lang='scss' scoped>
+
 </style>
