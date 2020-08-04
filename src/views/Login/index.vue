@@ -1,6 +1,6 @@
 <template>
   <div class="df jcc aic login" :style="{ backgroundImage: bgImg }">
-    <el-form :model="loginForm" :rules="loginFormRules" class="login-form">
+    <el-form ref="loginRef" :model="loginForm" :rules="loginFormRules" class="login-form">
       <div class="form-title">Vue Admin</div>
       <el-form-item prop="username" required>
         <el-input
@@ -20,7 +20,11 @@
         />
       </el-form-item>
 
-      <el-button plain style="width: 100%; margin-top: 5px; background-color: transparent; color: #fff;">登录</el-button>
+      <el-button
+        plain
+        style="width: 100%; margin-top: 5px; background-color: transparent; color: #fff;"
+        @click="handleLogin"
+      >登录</el-button>
     </el-form>
   </div>
 </template>
@@ -29,6 +33,35 @@
 export default {
   name: 'Login',
   data () {
+    const validateUsername = (formItem, value, cb) => {
+      if (/^[a-zA-Z]/.test(value)) {
+        cb()
+      } else {
+        cb(new Error('用户名必须以字母开头'))
+      }
+    }
+
+    const validatePwd = (formItem, value, cb) => {
+      new Promise((resolve, reject) => {
+        resolve({ code: 200 })
+        // eslint-disable-next-line prefer-promise-reject-errors
+        reject({
+          code: 404,
+          message: '随便错误'
+        })
+      })
+        .then(res => {
+          if (res.code === 200) {
+            cb()
+          } else {
+            cb(new Error('就是不让你通过'))
+          }
+        })
+        .catch(err => {
+          cb(new Error(`出错了,原因：${err.message},你通过不了！`))
+        })
+    }
+
     return {
       bgImg: `url(${require('@/assets/images/bg_img.jpg')})`,
       loginForm: {
@@ -36,9 +69,35 @@ export default {
         password: 'admin'
       },
       loginFormRules: {
-        username: [{ required: true, message: '请输入用户名' }],
-        password: [{ required: true, message: '请输入密码' }]
+        username: [
+          { required: true, message: '请输入用户名' },
+          { trigger: 'blur', validator: validateUsername }
+        ],
+        password: [
+          { required: true, message: '请输入密码' },
+          { trigger: 'blur', validator: validatePwd }
+        ]
       }
+    }
+  },
+
+  watch: {
+    $route: {
+      handler: function (route) {
+        this.redirectRoute = { path: '/' }
+      },
+      immediate: true
+    }
+  },
+
+  methods: {
+    handleLogin () {
+      this.$refs.loginRef.validate(async result => {
+        if (result) {
+          await this.$store.dispatch('user/login', this.loginForm)
+          this.$router.push(this.redirectRoute)
+        }
+      })
     }
   }
 }
