@@ -5,8 +5,8 @@
       <Icon name="caret-bottom" :myIconfont="false" />
     </span>
     <el-dropdown-menu slot="dropdown">
-      <el-dropdown-item command="github">Github</el-dropdown-item>
       <el-dropdown-item command="setting">设置</el-dropdown-item>
+      <el-dropdown-item command="github">Github</el-dropdown-item>
       <el-dropdown-item command="logout" divided>退出登录</el-dropdown-item>
     </el-dropdown-menu>
   </el-dropdown>
@@ -21,9 +21,37 @@ export default {
     }
   },
 
+  created () {
+    this.initHooks()
+  },
+
   methods: {
+    initHooks () {
+      this.hooks = {}
+
+      this.hooks.logout = async () => {
+        try {
+          await this.$store.dispatch('user/logout')
+          this.$message({
+            type: 'success',
+            message: '已登出'
+          })
+          this.$router.push({ path: '/login' })
+        } catch (error) {
+          this.$message({
+            type: 'error',
+            message: error
+          })
+        }
+      }
+
+      this.hooks.github = () => {
+        window.open(encodeURI(this.$store.getters.github))
+      }
+    },
+
     handleCommand (command) {
-      console.log(command)
+      this.hooks[`${command}`]()
     }
   }
 }
@@ -31,9 +59,9 @@ export default {
 
 <style lang='scss' scoped>
 .cpt-user-avatar {
+  cursor: pointer;
   .avatar {
     border: 1px solid #dddddd;
-    cursor: pointer;
   }
 }
 </style>

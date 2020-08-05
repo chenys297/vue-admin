@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import UserAvatar from './userAvatar'
+import UserAvatar from './UserAvatar'
 export default {
   name: 'AppHeader',
   components: { UserAvatar },

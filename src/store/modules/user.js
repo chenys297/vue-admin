@@ -1,4 +1,4 @@
-import { login } from '@/api/user'
+import { login, logout } from '@/api/user'
 import { setToken, removeToken } from '../../utils'
 
 const state = {
@@ -19,23 +19,29 @@ const mutations = {
 const actions = {
   login: async ({ commit }, userInfo) => {
     try {
-      const { code, data, message } = await login(userInfo)
-      if (code === 200) {
-        setToken(data.token)
-        commit('SET_USER_INFO', data)
-        commit('SET_LOGIN_FLAG', true)
-        return Promise.resolve(data)
-      } else {
-        removeToken()
-        commit('SET_USER_INFO', null)
-        commit('SET_LOGIN_FLAG', false)
-        return Promise.reject(message)
-      }
+      const usrInfo = await login(userInfo)
+      setToken(usrInfo.token)
+      commit('SET_USER_INFO', usrInfo)
+      commit('SET_LOGIN_FLAG', true)
+      return Promise.resolve(usrInfo)
     } catch (error) {
       removeToken()
       commit('SET_USER_INFO', null)
       commit('SET_LOGIN_FLAG', false)
-      return Promise.reject(error.message)
+      return Promise.reject(error)
+    }
+  },
+
+  logout: async ({ commit, dispatch }) => {
+    try {
+      await logout()
+      removeToken()
+      commit('SET_LOGIN_FLAG', false)
+      commit('SET_USER_INFO', null)
+      dispatch('app/clearOpenedRoutes', null, { root: true })
+      Promise.resolve()
+    } catch (error) {
+      Promise.reject(error)
     }
   }
 }

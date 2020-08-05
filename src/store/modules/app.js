@@ -1,4 +1,5 @@
 const state = {
+  github: 'https://github.com/chenys297/vue-admin',
   openedRoutes: [
     {
       path: '/dashboard',
@@ -47,6 +48,10 @@ const actions = {
       })
       resolve(state.openedRoutes[lastIdx])
     })
+  },
+
+  clearOpenedRoutes: ({ state }) => {
+    state.openedRoutes.splice(1, state.openedRoutes.length - 1)
   }
 }
 

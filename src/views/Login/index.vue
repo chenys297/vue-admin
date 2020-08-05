@@ -85,6 +85,9 @@ export default {
     $route: {
       handler: function (route) {
         this.redirectRoute = { path: '/' }
+        if (this.$store.getters.isLogin) {
+          this.$router.push(this.redirectRoute)
+        }
       },
       immediate: true
     }
