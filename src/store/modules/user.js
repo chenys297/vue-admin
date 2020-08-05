@@ -1,3 +1,6 @@
+import { login } from '@/api/user'
+import { setToken, removeToken } from '../../utils'
+
 const state = {
   roles: [999],
   isLogin: false,
@@ -14,14 +17,26 @@ const mutations = {
 }
 
 const actions = {
-  Login: ({ commit }, formData) => {
-    return new Promise((resolve, reject) => {
-      if (formData.username === 'admin' && formData.password === 'admin') {
-        resolve({ code: 200, data: formData })
+  login: async ({ commit }, userInfo) => {
+    try {
+      const { code, data, message } = await login(userInfo)
+      if (code === 200) {
+        setToken(data.token)
+        commit('SET_USER_INFO', data)
+        commit('SET_LOGIN_FLAG', true)
+        return Promise.resolve(data)
       } else {
-        reject({ code: 403, message: '请使用admin登录' })
+        removeToken()
+        commit('SET_USER_INFO', null)
+        commit('SET_LOGIN_FLAG', false)
+        return Promise.reject(message)
       }
-    })
+    } catch (error) {
+      removeToken()
+      commit('SET_USER_INFO', null)
+      commit('SET_LOGIN_FLAG', false)
+      return Promise.reject(error.message)
+    }
   }
 }
 

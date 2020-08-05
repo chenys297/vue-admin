@@ -94,8 +94,15 @@ export default {
     handleLogin () {
       this.$refs.loginRef.validate(async result => {
         if (result) {
-          await this.$store.dispatch('user/login', this.loginForm)
-          this.$router.push(this.redirectRoute)
+          try {
+            await this.$store.dispatch('user/login', this.loginForm)
+            this.$router.push(this.redirectRoute)
+          } catch (error) {
+            this.$message({
+              type: 'error',
+              message: error
+            })
+          }
         }
       })
     }
