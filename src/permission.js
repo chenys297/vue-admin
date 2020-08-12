@@ -2,9 +2,14 @@ import router from './router'
 import store from './store'
 import { Message } from 'element-ui'
 import { getToken } from './utils'
+const whilteList = ['/login']
 
 router.beforeEach(async (to, from, next) => {
   if (getToken()) {
+    if (to.path === '/login') {
+      next({ path: '/', replace: true })
+    }
+
     if (store.getters.asyncRoutes.length === 0) {
       try {
         const accessRoutes = await store.dispatch(
@@ -12,9 +17,6 @@ router.beforeEach(async (to, from, next) => {
           []
         )
         router.addRoutes(accessRoutes)
-        if (to.path === '/login') {
-          next({ path: '/login', replace: true })
-        }
         next({ ...to, replace: true })
       } catch (error) {
         Message.error(error || 'Has Error')
@@ -24,6 +26,10 @@ router.beforeEach(async (to, from, next) => {
       next()
     }
   } else {
-    next({ path: `/login?redirect=${to.path}` })
+    if (whilteList.includes(to.path)) {
+      next()
+    } else {
+      next({ path: `/login?redirect=${to.path}` })
+    }
   }
 })

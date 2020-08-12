@@ -2,32 +2,32 @@
 import Layout from '@/views/Layout'
 
 const dynamicRoutes = [
-  {
-    path: '/home',
-    name: 'home',
-    component: Layout,
-    redirect: '/dashboard',
-    hidden: false,
-    meta: {
-      requireAuth: true,
-      title: '首页',
-      icon: 'cpts'
-    },
-    children: [
-      {
-        path: '/dashboard',
-        name: 'dashboard',
-        component: () =>
-          import(/* webpackChunkName: "Dashboard" */ '@/views/Dashboard'),
-        hidden: false,
-        meta: {
-          requireAuth: false,
-          title: 'Dashboard',
-          icon: 'dashboard'
-        }
-      }
-    ]
-  },
+  // {
+  //   path: '/home',
+  //   name: 'home',
+  //   component: Layout,
+  //   redirect: '/dashboard',
+  //   hidden: false,
+  //   meta: {
+  //     requireAuth: true,
+  //     title: '首页',
+  //     icon: 'cpts'
+  //   },
+  //   children: [
+  //     {
+  //       path: '/dashboard',
+  //       name: 'dashboard',
+  //       component: () =>
+  //         import(/* webpackChunkName: "Dashboard" */ '@/views/Dashboard'),
+  //       hidden: false,
+  //       meta: {
+  //         requireAuth: false,
+  //         title: 'Dashboard',
+  //         icon: 'dashboard'
+  //       }
+  //     }
+  //   ]
+  // },
   {
     path: '/sysMgmt',
     name: 'sysMgmt',

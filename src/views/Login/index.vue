@@ -84,8 +84,7 @@ export default {
   watch: {
     $route: {
       handler: function (route) {
-        this.redirectRoute = { path: '/home' }
-
+        this.redirectRoute = { path: '/' }
         if (route.query.redirect) {
           this.redirectRoute = { path: route.query.redirect }
         }
