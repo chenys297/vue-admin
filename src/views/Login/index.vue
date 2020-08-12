@@ -84,7 +84,11 @@ export default {
   watch: {
     $route: {
       handler: function (route) {
-        this.redirectRoute = { path: '/' }
+        this.redirectRoute = { path: '/home' }
+
+        if (route.query.redirect) {
+          this.redirectRoute = { path: route.query.redirect }
+        }
         if (this.$store.getters.isLogin) {
           this.$router.push(this.redirectRoute)
         }

@@ -7,28 +7,28 @@ Vue.use(VueRouter)
 export const constRoutes = [
   {
     path: '/',
-    name: 'home',
+    name: '/index',
     component: Layout,
-    redirect: '/dashboard',
+    redirect: '/login',
     hidden: true,
     meta: {
       requireAuth: false,
-      title: 'home',
+      title: '/index',
       icon: ''
     },
     children: [
-      {
-        path: '/dashboard',
-        name: 'dashboard',
-        component: () =>
-          import(/* webpackChunkName: "Dashboard" */ '@/views/Dashboard'),
-        hidden: false,
-        meta: {
-          requireAuth: false,
-          title: 'Dashboard',
-          icon: 'dashboard'
-        }
-      }
+      // {
+      //   path: '/dashboard',
+      //   name: 'dashboard',
+      //   component: () =>
+      //     import(/* webpackChunkName: "Dashboard" */ '@/views/Dashboard'),
+      //   hidden: false,
+      //   meta: {
+      //     requireAuth: false,
+      //     title: 'Dashboard',
+      //     icon: 'dashboard'
+      //   }
+      // }
     ]
   },
   {
